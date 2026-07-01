@@ -7,7 +7,21 @@
   50% { opacity: 0.55; }
   100% { transform: translateY(-140px) translateX(12px); opacity: 0; }
 }
+@keyframes drift-down {
+  0% {
+    transform: translateY(-30px) translateX(0);
+    opacity: 0;
+  }
 
+  20% {
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: translateY(120vh) translateX(-12px);
+    opacity: 0;
+  }
+}
 @keyframes confetti-fall {
   0% {
     transform: translateY(-30px) rotate(0deg) scale(0.8);

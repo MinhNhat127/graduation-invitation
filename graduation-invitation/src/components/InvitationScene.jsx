@@ -46,6 +46,22 @@ const [showConfetti, setShowConfetti] = useState(false);
           }}
         />
       ))}
+      {/* Falling golden particles */}
+{Array.from({ length: 8 }).map((_, i) => (
+  <span
+    key={`fall-${i}`}
+    className="absolute top-0 rounded-full bg-[#ffffff]"
+    style={{
+      left: `${5 + i * 12}%`,
+      width: 3 + (i % 2),
+      height: 3 + (i % 2),
+      opacity: 0.35,
+      animation: `drift-down ${
+        7 + (i % 3)
+      }s linear ${i * 0.8}s infinite`,
+    }}
+  />
+))}
 
       {showConfetti && <Confetti />}
 

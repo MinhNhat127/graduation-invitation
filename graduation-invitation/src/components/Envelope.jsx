@@ -11,9 +11,15 @@ function Envelope({ stage, onOpen }) {
       disabled={opening}
       className={[
         "relative w-full border-none bg-transparent p-0",
-        "h-[260px] max-w-[460px]",
-        "md:h-[320px] md:max-w-[560px]",
-        "lg:h-[360px] lg:max-w-[640px]",
+        "mx-auto",
+
+        "h-[220px] max-w-[340px]",
+
+        "sm:h-[260px] sm:max-w-[420px]",
+
+        "md:h-[300px] md:max-w-[500px]",
+
+        "lg:h-[340px] lg:max-w-[600px]",
         opening ? "cursor-default" : "cursor-pointer",
         "transition-all duration-500 ease-out",
         stage === "open"
@@ -22,10 +28,10 @@ function Envelope({ stage, onOpen }) {
       ].join(" ")}
     >
       {/* Envelope body */}
-      <div className="absolute inset-0 rounded-3xl border border-[#D4AF6A]/40 bg-gradient-to-br from-[#F1E6C8] to-[#FBF6EA] shadow-[0_24px_60px_rgba(10,24,48,0.55)]" />
+      <div className="absolute inset-0 rounded-2xl border border-[#D4AF6A]/40 bg-gradient-to-br from-[#F1E6C8] to-[#FBF6EA] shadow-[0_12px_30px_rgba(10,24,48,0.45)] sm:rounded-3xl sm:shadow-[0_24px_60px_rgba(10,24,48,0.55)]" />
 
       {/* Lower pocket */}
-      <div className="absolute inset-x-0 bottom-0 h-[62%] rounded-b-3xl bg-gradient-to-b from-transparent to-[#D4AF6A]/10" />
+      <div className="absolute inset-x-0 bottom-0 h-[62%] rounded-b-2xl bg-gradient-to-b from-transparent to-[#D4AF6A]/10 sm:rounded-b-3xl" />
 
       {/* Flap */}
       <div
@@ -59,22 +65,22 @@ function Envelope({ stage, onOpen }) {
       </div>
 
       {/* Wax seal */}
-      <div className="absolute left-1/2 top-[45%] z-20 -translate-x-1/2 -translate-y-1/2 scale-125">
+      <div className="absolute left-1/2 top-[45%] z-20 -translate-x-1/2 -translate-y-1/2 scale-100 xs:scale-100 md:scale-110 lg:scale-125">
         <WaxSeal breaking={opening} />
       </div>
 
       {!opening && (
-        <div className="absolute inset-x-0 bottom-10 text-center">
-          <p className="font-display text-l font-bold tracking-[0.08em] text-[#0A1830] md:text-2xl">
+        <div className="absolute inset-x-0 bottom-4 px-3 text-center xs:bottom-5 sm:bottom-7 md:bottom-10">
+          <p className="font-display text-sm font-bold leading-tight tracking-[0.06em] text-[#0A1830] xs:text-base sm:text-xl md:text-2xl">
             THIỆP MỜI
           </p>
 
-          <p className="font-script mt-1 text-[16px] italic text-[#A9822F] sm:text-[20px]">
-          Lễ đăng xuất account trường
-        </p>
+          <p className="font-script mt-0.5 text-[13px] italic leading-tight text-[#A9822F] xs:text-[14px] sm:text-[18px]">
+            Lễ đăng xuất account trường
+          </p>
 
-          <p className="mt-6 flex items-center justify-center gap-2 text-sm text-[#565B6E] sm:text-[15px]">
-            <Mail size={14} />
+          <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-[#565B6E] xs:mt-4 sm:mt-6 sm:text-sm md:gap-2 md:text-[15px]">
+            <Mail className="h-3.5 w-3.5 md:h-4 md:w-4" />
             Nhấn để mở
           </p>
         </div>
