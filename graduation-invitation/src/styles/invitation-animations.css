@@ -1,0 +1,64 @@
+/* Fonts used across the invitation */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap');
+
+/* Envelope + card choreography */
+@keyframes drift {
+  0% { transform: translateY(0) translateX(0); opacity: 0.25; }
+  50% { opacity: 0.55; }
+  100% { transform: translateY(-140px) translateX(12px); opacity: 0; }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-30px) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(320px) rotate(540deg) scale(1);
+    opacity: 0;
+  }
+}
+
+
+@keyframes swing {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@keyframes light-burst {
+  0% { transform: scale(0.2); opacity: 0.9; }
+  100% { transform: scale(3.2); opacity: 0; }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(36px) scale(0.94); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-120%) skewX(-15deg); }
+  100% { transform: translateX(220%) skewX(-15deg); }
+}
+
+@keyframes crest-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 106, 0.35); }
+  50% { box-shadow: 0 0 0 10px rgba(212, 175, 106, 0); }
+}
+
+@keyframes flap-open {
+  from { transform: rotateX(0deg); }
+  to { transform: rotateX(-150deg); }
+}
+
+.font-display {
+  font-family: "Playfair Display", serif;
+}
+
+.font-script {
+  font-family: "Cormorant Garamond", serif;
+}

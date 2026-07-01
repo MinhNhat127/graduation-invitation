@@ -1,19 +1,9 @@
 const invitation = {
-  name: "Nguyễn Văn A",
-
-  university: "Trường Đại học ...",
-
-  major: "Ngành ...",
-
-  date: "Thứ ..., ngày ... tháng ... năm ...",
-
-  time: "08:00",
-
-  location: "Hội trường A",
-
-  address: "123 Nguyễn Văn Linh, Quận ..., TP. ...",
-
-  maps: "https://maps.app.goo.gl/wvPWEbA971ruoFSu7"
+  date: "Thứ 6, 10 tháng 7, 2026",
+  time: "17:00 – 19:00",
+  location: "Trường Đại học Đông Á",
+  address: "33 Xô Viết Nghệ Tĩnh, Quận Hải Châu, Đà Nẵng",
+  maps: "https://maps.app.goo.gl/kj95tocfqZfTKQej8",
 };
 
 export default invitation;
