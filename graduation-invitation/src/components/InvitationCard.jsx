@@ -8,11 +8,11 @@ function InvitationCard({ visible }) {
   return (
     <div
       className={[
-        "relative w-full max-w-[400px] rounded-[22px] border border-[#D4AF6A]/40",
+        "relative w-full max-w-[420px] rounded-[22px] border border-[#D4AF6A]/40",
         "bg-gradient-to-b from-[#FBF6EA] to-[#F1E6C8]",
         "px-5 pt-10 pb-7",
-        "md:max-w-[520px] md:px-7 md:pt-11 md:pb-8",
-        "lg:max-w-[640px] lg:px-8 lg:pb-9",
+        "md:max-w-[560px] md:px-7 md:pt-11 md:pb-8",
+        "lg:max-w-[680px] lg:px-8 lg:pb-9",
         visible ? "animate-border-glow" : "opacity-0",
       ]
         .filter(Boolean)
@@ -44,7 +44,7 @@ function InvitationCard({ visible }) {
 
         {/* Avatar/Photo of the Host (Centered) */}
         <div className="mt-5 mb-5 flex justify-center sm:mt-6 sm:mb-6">
-          <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-[#D4AF6A] shadow-[0_6px_16px_rgba(169,130,47,0.35)] sm:h-32 sm:w-32 md:h-36 md:w-36">
+          <div className="relative h-32 w-32 overflow-hidden rounded-full border-2 border-[#D4AF6A] shadow-[0_6px_16px_rgba(169,130,47,0.35)] sm:h-38 sm:w-38 md:h-44 md:w-44">
             <img
               src="/avatar.jpg"
               alt={invitation.host}
@@ -53,7 +53,7 @@ function InvitationCard({ visible }) {
           </div>
         </div>
 
-        <p className="font-script text-[15px] leading-[1.5] text-[#25293A] sm:text-[17px] md:text-[18px]">
+        <p className="font-script text-[14px] leading-[1.6] text-[#25293A] xs:text-[15px] sm:text-[16px] md:text-[17px]">
           Sau bao năm cống hiến thanh xuân cho code và cúp học chuyên nghiệp, cuối cùng mình cũng "lết" được tới ngày tốt nghiệp r =)) <br />
           Mọi người qua chụp hình chung với mình và xem mình "Log out" khỏi account trường nhé. Hi vọng được gặp mặt mọi người và nhận lời chúc cho chặng đường tiếp theo của mình này
         </p>
