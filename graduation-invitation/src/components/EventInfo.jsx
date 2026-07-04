@@ -8,7 +8,7 @@ function EventRow({ icon, label, sub }) {
       <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-[#D4AF6A]/40 bg-gradient-to-br from-[#F1E6C8] to-[#D4AF6A]/10 text-[#A9822F] sm:h-10 sm:w-10">
         {icon}
       </div>
-      <div className="pt-1">
+      <div className="pt-1 text-left">
         <p className="text-[14px] font-semibold text-[#25293A] sm:text-[15px]">{label}</p>
         {sub && (
           <p className="mt-0.5 text-[12px] text-[#565B6E] sm:text-[13px]">{sub}</p>
