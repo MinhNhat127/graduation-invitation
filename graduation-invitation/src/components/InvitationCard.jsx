@@ -53,8 +53,8 @@ function InvitationCard({ visible }) {
           </div>
         </div>
 
-        <p className="font-script text-[14px] leading-[1.6] text-[#25293A] xs:text-[15px] sm:text-[16px] md:text-[17px]">
-          Sau bao năm cống hiến thanh xuân cho code và cúp học chuyên nghiệp, cuối cùng mình cũng "lết" được tới ngày tốt nghiệp rồi =)) <br />
+        <p className="font-script text-[13px] leading-[1.6] text-[#25293A] xs:text-[14.5px] sm:text-[16px] md:text-[17px]">
+          Sau bao năm cống hiến thanh xuân cho code và cúp học chuyên nghiệp, cuối cùng mình cũng "lết" được tới ngày tốt nghiệp rồi =)) <br className="hidden sm:inline" />
           Mọi người qua chụp hình chung với mình và xem mình "Log out" khỏi account trường nhé. Hi vọng được gặp mặt mọi người và nhận lời chúc cho chặng đường tiếp theo của mình này.
         </p>
 
