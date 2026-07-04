@@ -34,6 +34,9 @@ function InvitationCard({ visible }) {
         <p className="font-script mt-1 text-[16px] italic text-[#A9822F] sm:text-[18px]">
           Lễ đăng xuất account trường
         </p>
+        <p className="mt-2 text-xs font-semibold tracking-wider text-[#565B6E] uppercase sm:text-sm">
+          Chủ thiệp: <span className="text-[#0A1830] font-bold">{invitation.host}</span>
+        </p>
       </div>
 
       <p className="font-script text-center text-[15px] leading-[1.5] text-[#25293A] sm:text-[17px]">

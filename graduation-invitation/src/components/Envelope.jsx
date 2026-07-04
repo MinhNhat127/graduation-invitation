@@ -1,6 +1,7 @@
 import { Mail } from "lucide-react";
 
 import WaxSeal from "./WaxSeal";
+import invitation from "../data/invitation";
 
 function Envelope({ stage, onOpen }) {
   const opening = stage !== "closed";
@@ -77,6 +78,10 @@ function Envelope({ stage, onOpen }) {
 
           <p className="font-script mt-0.5 text-[13px] italic leading-tight text-[#A9822F] xs:text-[14px] sm:text-[18px]">
             Lễ đăng xuất account trường
+          </p>
+
+          <p className="mt-1 text-[11px] font-semibold text-[#0A1830] opacity-80 xs:text-xs">
+            Chủ thiệp: {invitation.host}
           </p>
 
           <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-[#565B6E] xs:mt-4 sm:mt-6 sm:text-sm md:gap-2 md:text-[15px]">

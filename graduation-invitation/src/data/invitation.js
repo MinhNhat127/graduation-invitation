@@ -1,4 +1,5 @@
 const invitation = {
+  host: "Hồ Lê Minh Nhật (em min)",
   date: "Thứ 6, 10 tháng 7, 2026",
   time: "17:00 – 19:00",
   location: "Trường Đại học Đông Á",
