@@ -1,5 +1,3 @@
-import { Mail } from "lucide-react";
-
 import WaxSeal from "./WaxSeal";
 import invitation from "../data/invitation";
 
@@ -11,7 +9,10 @@ function Envelope({ stage, onOpen }) {
       onClick={onOpen}
       disabled={opening}
       className={[
-        "relative w-full border-none bg-transparent p-0",
+        stage === "open"
+          ? "absolute pointer-events-none scale-95 opacity-0 delay-300"
+          : "relative w-full scale-100 opacity-100",
+        "border-none bg-transparent p-0",
         "mx-auto",
 
         "h-[220px] max-w-[340px]",
@@ -23,10 +24,8 @@ function Envelope({ stage, onOpen }) {
         "lg:h-[340px] lg:max-w-[600px]",
         opening ? "cursor-default" : "cursor-pointer",
         "transition-all duration-500 ease-out",
-        stage === "open"
-          ? "pointer-events-none scale-95 opacity-0 delay-300"
-          : "scale-100 opacity-100",
-      ].join(" ")}
+        stage === "closed" && "animate-hover",
+      ].filter(Boolean).join(" ")}
     >
       {/* Envelope body */}
       <div className="absolute inset-0 rounded-2xl border border-[#D4AF6A]/40 bg-gradient-to-br from-[#F1E6C8] to-[#FBF6EA] shadow-[0_12px_30px_rgba(10,24,48,0.45)] sm:rounded-3xl sm:shadow-[0_24px_60px_rgba(10,24,48,0.55)]" />
@@ -36,7 +35,7 @@ function Envelope({ stage, onOpen }) {
 
       {/* Flap */}
       <div
-        className="absolute inset-x-0 top-0 z-10 h-[62%] origin-top [transform-style:preserve-3d]"
+        className="absolute inset-x-0 top-0 z-10 h-[58%] origin-top [transform-style:preserve-3d]"
         style={{
           transform: opening ? "rotateX(-150deg)" : "rotateX(0deg)",
           transition: "transform 0.85s cubic-bezier(.6,0,.35,1)",
@@ -65,28 +64,23 @@ function Envelope({ stage, onOpen }) {
         </svg>
       </div>
 
-      {/* Wax seal */}
-      <div className="absolute left-1/2 top-[45%] z-20 -translate-x-1/2 -translate-y-1/2 scale-100 xs:scale-100 md:scale-110 lg:scale-125">
+      {/* Wax seal at top-[50%] to prevent text overlap while staying visually centered */}
+      <div className="absolute left-1/2 top-[50%] z-20 -translate-x-1/2 -translate-y-1/2 scale-100 xs:scale-100 md:scale-110 lg:scale-125">
         <WaxSeal breaking={opening} />
       </div>
 
       {!opening && (
-        <div className="absolute inset-x-0 bottom-4 px-3 text-center xs:bottom-5 sm:bottom-7 md:bottom-10">
-          <p className="font-display text-sm font-bold leading-tight tracking-[0.06em] text-[#0A1830] xs:text-base sm:text-xl md:text-2xl">
+        <div className="absolute inset-x-0 bottom-4 px-3 text-center xs:bottom-5 sm:bottom-7 md:bottom-9 z-20 pointer-events-none">
+          <p className="font-display text-xs font-bold leading-tight tracking-[0.06em] text-[#0A1830] xs:text-sm sm:text-lg md:text-xl">
             THIỆP MỜI
           </p>
 
-          <p className="font-script mt-0.5 text-[13px] italic leading-tight text-[#A9822F] xs:text-[14px] sm:text-[18px]">
-            Lễ đăng xuất account trường
+          <p className="font-script mt-1.5 text-[15px] italic leading-tight text-[#A9822F] xs:text-[17px] sm:text-[21px] xs:mt-2">
+            LỄ TỐT NGHIỆP
           </p>
 
-          <p className="mt-1 text-[11px] font-semibold text-[#0A1830] opacity-80 xs:text-xs">
-            Chủ thiệp: {invitation.host}
-          </p>
-
-          <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-[#565B6E] xs:mt-4 sm:mt-6 sm:text-sm md:gap-2 md:text-[15px]">
-            <Mail className="h-3.5 w-3.5 md:h-4 md:w-4" />
-            Nhấn để mở
+          <p className="font-script mt-1.5 text-[13px] italic text-[#0A1830]/90 xs:text-[14px] sm:text-[17px] tracking-wide xs:mt-2">
+            {invitation.host}
           </p>
         </div>
       )}

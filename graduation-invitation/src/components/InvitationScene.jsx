@@ -46,31 +46,68 @@ const [showConfetti, setShowConfetti] = useState(false);
           }}
         />
       ))}
-      {/* Falling golden particles */}
-{Array.from({ length: 8 }).map((_, i) => (
-  <span
-    key={`fall-${i}`}
-    className="absolute top-0 rounded-full bg-[#ffffff]"
-    style={{
-      left: `${5 + i * 12}%`,
-      width: 3 + (i % 2),
-      height: 3 + (i % 2),
-      opacity: 0.35,
-      animation: `drift-down ${
-        7 + (i % 3)
-      }s linear ${i * 0.8}s infinite`,
-    }}
-  />
-))}
+      
+      {/* Falling golden/white particles with sparkle */}
+      {Array.from({ length: 10 }).map((_, i) => {
+        const isGold = i % 2 === 0;
+        return (
+          <span
+            key={`fall-${i}`}
+            className={`absolute top-0 rounded-full ${
+              isGold ? "bg-[#D4AF6A]" : "bg-[#ffffff]"
+            }`}
+            style={{
+              left: `${5 + i * 10}%`,
+              width: 2.5 + (i % 3),
+              height: 2.5 + (i % 3),
+              opacity: isGold ? 0.45 : 0.3,
+              animation: `drift-down ${8 + (i % 4)}s linear ${i * 0.7}s infinite, sparkle 2s ease-in-out ${i * 0.3}s infinite`,
+            }}
+          />
+        );
+      })}
+
+      {/* Ambient glowing orb in the center */}
+      <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full bg-gradient-to-tr from-[#D4AF6A]/5 to-[#1C3A66]/25 blur-[80px] sm:blur-[110px] pointer-events-none z-0"
+        style={{
+          transform: "translate(-50%, -50%)",
+          animation: "pulse-slow 12s ease-in-out infinite",
+        }}
+      />
+
+      {/* Glowing 4-pointed stars in the background */}
+      {[
+        { top: "12%", left: "8%", delay: "0.2s", scale: 0.55 },
+        { top: "22%", left: "88%", delay: "1.4s", scale: 0.75 },
+        { top: "68%", left: "12%", delay: "2.8s", scale: 0.65 },
+        { top: "78%", left: "82%", delay: "0.8s", scale: 0.5 },
+        { top: "15%", left: "72%", delay: "1.9s", scale: 0.85 },
+      ].map((star, idx) => (
+        <svg
+          key={`star-${idx}`}
+          className="absolute pointer-events-none animate-sparkle"
+          style={{
+            top: star.top,
+            left: star.left,
+            width: 22,
+            height: 22,
+            fill: "#D4AF6A",
+            opacity: 0,
+            animationDelay: star.delay,
+            transform: `scale(${star.scale})`,
+          }}
+          viewBox="0 0 24 24"
+        >
+          <path d="M12,2 L14.5,9.5 L22,12 L14.5,14.5 L12,22 L9.5,14.5 L2,12 L9.5,9.5 Z" />
+        </svg>
+      ))}
 
       {showConfetti && <Confetti />}
 
       <div className="relative flex w-full items-center justify-center">
         <Envelope stage={stage} onOpen={handleOpen} />
         {stage === "open" && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <InvitationCard visible />
-          </div>
+          <InvitationCard visible />
         )}
       </div>
     </div>
